@@ -1,17 +1,14 @@
-package com.codegym.casestudy.model;
+package model;
 
-import lombok.Data;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Entity
 @Table
-@Data
 public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -39,10 +36,10 @@ public class Account {
     private Comment comment;
 
     @ManyToMany(fetch = FetchType.EAGER)
-    private List<Role> roles;
+    private List<com.codegym.casestudy.model.Role> roles;
 
     @ManyToMany(fetch = FetchType.EAGER)
-    private List<Blog> blogs;
+    private List<com.codegym.casestudy.model.Blog> blogs;
 
     public Long getId() {
         return id;
@@ -100,19 +97,19 @@ public class Account {
         this.comment = comment;
     }
 
-    public List<Role> getRoles() {
+    public List<com.codegym.casestudy.model.Role> getRoles() {
         return roles;
     }
 
-    public void setRoles(List<Role> roles) {
+    public void setRoles(List<com.codegym.casestudy.model.Role> roles) {
         this.roles = roles;
     }
 
-    public List<Blog> getBlogs() {
+    public List<com.codegym.casestudy.model.Blog> getBlogs() {
         return blogs;
     }
 
-    public void setBlogs(List<Blog> blogs) {
+    public void setBlogs(List<com.codegym.casestudy.model.Blog> blogs) {
         this.blogs = blogs;
     }
 }

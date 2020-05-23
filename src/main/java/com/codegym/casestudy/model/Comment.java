@@ -1,12 +1,9 @@
-package com.codegym.casestudy.model;
-
-import lombok.Data;
+package model;
 
 import javax.persistence.*;
 
 @Entity
 @Table
-@Data
 public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

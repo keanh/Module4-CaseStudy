@@ -1,14 +1,10 @@
-package com.codegym.casestudy.model;
-
-import lombok.Data;
+package model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 
 @Entity
 @Table
-@Data
 public class Blog {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
