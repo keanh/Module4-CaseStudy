@@ -7,7 +7,7 @@ import javax.persistence.*;
 @Entity
 @Table
 @Data
-public class PermissionView {
+public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
