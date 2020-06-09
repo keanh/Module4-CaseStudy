@@ -1,4 +1,7 @@
-package com.codegym.casestudy.model;
+package com.codegym.casestudy.repository;
 
-public interface CommentRepository {
+import com.codegym.casestudy.model.Comment;
+import org.springframework.data.repository.CrudRepository;
+
+public interface CommentRepository extends CrudRepository<Comment,Long> {
 }

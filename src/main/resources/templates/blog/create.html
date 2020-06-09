@@ -1,10 +1,101 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Create blog</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/create.css">
+
+
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="/css/adminlte.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <link rel="stylesheet" href="/css/summernote-bs4.css">
+    <link rel="stylesheet" href="/css/all.min.css">
 </head>
 <body>
-$END$
+<link href="https://fonts.googleapis.com/css?family=Oleo+Script:400,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Teko:400,700" rel="stylesheet">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<section id="contact">
+    <div class="section-content">
+        <h1 class="section-header">Write your <a class="content-header wow fadeIn " data-wow-delay="0.2s" data-wow-duration="2s" href="/blog/view"> Blog here</a></h1>
+        <h3>Everything you can imagine is real. ― Pablo Picasso</h3>
+    </div>
+    <div class="contact-section">
+        <div class="container">
+            <form th:action="@{/user/create}" th:object="${blog}" method="post">
+                <div class="col-md-12 form-line">
+                    <div>
+                        <input type="hidden" class="form-control" th:field="*{account.id}">
+                    </div>
+                    <div class="form-group">
+                        <label>Tittle</label>
+                        <input type="text" class="form-control" th:field="*{tittle}" placeholder=" Enter tittle">
+                        <td th:if="${#fields.hasErrors('tittle')}" th:errors="*{tittle}" class="error">Name Error</td>
+                    </div>
+                    <div class="form-group">
+                        <label>Category</label>
+                        <select th:field="*{category}" class="form-control">
+                            <option th:each="c : ${categories}"
+                                    th:value="${c.id}"
+                                    th:text="${c.name}">
+                            </option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Permission view</label>
+                        <select th:field="*{permissionView}" name="permissionView" class="form-control">
+                            <option th:each="p : ${permission}"
+                                    th:value="${p.id}"
+                                    th:text="${p.name}">
+                            </option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Picture link</label>
+                        <input type="text" class="form-control" th:field="*{picture}" placeholder="Picture link">
+                        <td th:if="${#fields.hasErrors('picture')}" th:errors="*{picture}" class="error">Name Error</td>
+                    </div>
+                </div>
+                <div class="col-md-12" style="font-size: 1.5em">
+<!--                    <div class="form-group">-->
+<!--                        <label>Content</label>-->
+<!--                        <textarea type="text" class="form-control" th:field="*{content}" placeholder="Write your blog here"></textarea>-->
+<!--                        <td th:if="${#fields.hasErrors('content')}" th:errors="*{content}">Name Error</td>-->
+<!--                    </div>-->
+                    <div class="card-body pad" style="padding-left: unset;padding-right: unset" >
+                        <div class="mb-3">
+                            <label>Content</label>
+                            <textarea class="textarea" th:field="*{content}" placeholder="Place some text here"
+                            style="width: 100%; height: 300px; font-size: 20px; line-height: 20px; border: 1px solid #dddddd; padding: 10px"></textarea>
+                        </div>
+                    </div>
+<!--                    <th:block th:if="${message}">-->
+<!--                        <p th:text="${message}"></p>-->
+<!--                    </th:block>-->
+                    <div>
+                        <button type="submit" class="btn btn-default submit"><i class="fa fa-paper-plane" aria-hidden="true"></i>Create blog</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<script src="/css/jquery.min.js"></script>
+<script src="/css/bootstrap.bundle.min.js"></script>
+<script src="/css/adminlte.min.js"></script>
+<script src="/css/demo.js"></script>
+<script src="/css/summernote-bs4.min.js"></script>
+<script>
+    $(function () {
+        // Summernote
+        $('.textarea').summernote()
+    })
+</script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-package model;
+package com.codegym.casestudy.model;
 
 import javax.persistence.*;
 

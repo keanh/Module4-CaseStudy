@@ -1,4 +1,7 @@
 package com.codegym.casestudy.repository;
 
-public interface Province {
+import com.codegym.casestudy.model.Province;
+import org.springframework.data.repository.CrudRepository;
+
+public interface ProvinceRepository extends CrudRepository<Province,Long> {
 }

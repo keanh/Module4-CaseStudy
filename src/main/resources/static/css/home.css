@@ -1,6 +1,6 @@
 .blog-wrap {
     font-family: 'Open Sans', sans-serif;
-    padding: 60px 0;
+    padding: 20px 0;
 }
 .blog-left {
     padding-right: 40px;
@@ -199,8 +199,8 @@
     width: 50%;
     margin-bottom: 25px;
 }
-.entry-post>p{
+.entry-post{
     overflow: hidden;
     text-overflow: ellipsis;
-    height: 105px;
+    height: 135.5px;
 }

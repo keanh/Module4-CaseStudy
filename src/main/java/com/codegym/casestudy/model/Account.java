@@ -1,10 +1,13 @@
-package model;
+package com.codegym.casestudy.model;
 
+
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 import java.util.List;
 
 @Entity
@@ -15,9 +18,16 @@ public class Account {
     private Long id;
 
     @NotEmpty
-    private String username;
+    @Size(min = 5,max = 45)
+    private String firstName;
 
     @NotEmpty
+    @Size(min = 5,max = 45)
+    private String lastName;
+
+    @Column(unique = true)
+    private String username;
+
     private String password;
 
     @NotEmpty
@@ -36,10 +46,7 @@ public class Account {
     private Comment comment;
 
     @ManyToMany(fetch = FetchType.EAGER)
-    private List<com.codegym.casestudy.model.Role> roles;
-
-    @ManyToMany(fetch = FetchType.EAGER)
-    private List<com.codegym.casestudy.model.Blog> blogs;
+    private List<Role> roles;
 
     public Long getId() {
         return id;
@@ -97,19 +104,35 @@ public class Account {
         this.comment = comment;
     }
 
-    public List<com.codegym.casestudy.model.Role> getRoles() {
+    public List<Role> getRoles() {
         return roles;
     }
 
-    public void setRoles(List<com.codegym.casestudy.model.Role> roles) {
+    public void setRoles(List<Role> roles) {
         this.roles = roles;
     }
 
-    public List<com.codegym.casestudy.model.Blog> getBlogs() {
-        return blogs;
+    public int getAge() {
+        return age;
     }
 
-    public void setBlogs(List<com.codegym.casestudy.model.Blog> blogs) {
-        this.blogs = blogs;
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 }

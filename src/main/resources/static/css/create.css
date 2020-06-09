@@ -9,12 +9,11 @@
 
 }
 #contact{
-
-    font-family: 'Teko', sans-serif;
+    font-family: 'Arial', Arial;
     padding-top: 60px;
+    padding-bottom: 400px;;
     width: 100%;
     width: 100vw;
-    height: 550px;
     background: #3a6186; /* fallback for old browsers */
     background: -webkit-linear-gradient(to left, #3a6186 , #89253e); /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to left, #3a6186 , #89253e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
@@ -23,8 +22,8 @@
 .contact-section{
     padding-top: 40px;
 }
-.contact-section .col-md-6{
-    width: 50%;
+.contact-section .col-md-12 {
+    width:100%;
 }
 
 .form-line{
@@ -35,24 +34,28 @@
     margin-top: 10px;
 }
 label{
-    font-size: 1.3em;
+    font-size: 2em;
     line-height: 1em;
     font-weight: normal;
 }
 .form-control{
-    font-size: 1.3em;
+    font-size: 2em;
     color: #080808;
 }
-textarea.form-control {
-    height: 135px;
-    /* margin-top: px;*/
-}
+/*textarea.form-control {*/
+/*    height: 135px;*/
+/*    !* margin-top: px;*!*/
+/*}*/
 
 .submit{
     font-size: 1.1em;
-    float: right;
+    float: left;
     width: 150px;
     background-color: transparent;
     color: #fff;
-
 }
+
+/*#contact .error{*/
+/*    font-size: 1.5em;*/
+/*    color: red;*/
+/*}*/
